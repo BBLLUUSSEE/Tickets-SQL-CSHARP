@@ -20,3 +20,13 @@ INSERT INTO Tickets VALUES('questa è una descrizione', '2022-05-16 12:30', 'Ant
 INSERT INTO Tickets VALUES('questa è una descrizione', '2022-05-17 12:30', 'Michele', 'OnGoing');
 INSERT INTO Tickets VALUES('questa è una descrizione', '2022-05-18 12:30', 'Giulia', 'Resolved');
 INSERT INTO Tickets VALUES('questa è una descrizione', '2022-05-25 12:30', 'Aurora', 'New');
+
+CREATE PROCEDURE AggiornaStato
+	@Utente varchar(30),
+	@NuovoStato varchar(10)
+AS
+	UPDATE Tickets
+	SET Stato = @NuovoStato
+	WHERE Nome = @Utente
+GO
+EXECUTE AggiornaPrezzo @Nome = 'Anna', @NuovoStato = 'OnGoing';
